@@ -42,3 +42,7 @@ bin/
 .DS_Store
 /.idea/kotlinc.xml
 /.idea/
+
+
+
+/translate-out/

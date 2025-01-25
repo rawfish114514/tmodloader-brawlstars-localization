@@ -1,0 +1,88 @@
+{
+    "BIBI" : {
+        "BIBI_Item" : {
+            "DisplayName" : "" ,
+            "Tooltip" : "" ,
+            "BrawlerDescription" : [
+                "TID_BASEBALL_DESC" ,
+                {}
+            ] ,
+            "Traits1" : [
+                "TID$empty" ,
+                {}
+            ] ,
+            "TraitsDescription1" : [
+                "TID$empty" ,
+                {}
+            ] ,
+            "Attack1" : [
+                "TID_BASEBALL_WEAPON" ,
+                {}
+            ] ,
+            "AttackDescription1" : [
+                "TID_BASEBALL_WEAPON_DESC" ,
+                {}
+            ] ,
+            "AttackStat1" : "",
+            "Super1" : [
+                "TID_BASEBALL_ULTI" ,
+                {}
+            ] ,
+            "SuperDescription1" : [
+                "TID_BASEBALL_ULTI_DESC" ,
+                {}
+            ] ,
+            "SuperStat1" : "" ,
+            "HyperCharge1" : [
+                "TID_BASEBALL_OVERCHARGE" ,
+                {}
+            ] ,
+            "HyperChargeDescription1" : [
+                "TID_BASEBALL_OVERCHARGE_DESC" ,
+                {}
+            ] ,
+            "HyperChargeStat1" : "" ,
+            "Gadget1" : [
+                "TID_ACCESSORY_BASEBALL_HEAL" ,
+                {}
+            ] ,
+            "GadgetDescription1" : [
+                "TID_ACCESSORY_BASEBALL_HEAL_DESC" ,
+                {
+                    "<c00cc00><VALUE1></c>" : "50" ,
+                    "<c00cc00><VALUE2></c>" : "4"
+                }
+            ] ,
+            "Gadget2" : [
+                "TID_ACCESSORY_BASEBALL_STICKY" ,
+                {}
+            ] ,
+            "GadgetDescription2" : [
+                "TID_ACCESSORY_BASEBALL_STICKY_DESC" ,
+                {
+                    "<c00cc00><VALUE1></c>" : "3"
+                }
+            ] ,
+            "StarPower1" : [
+                "TID_SPEC_ABI_SPED_FULL_AMMO" ,
+                {}
+            ] ,
+            "StarPowerDescription1" : [
+                "TID_SPEC_ABI_SPED_FULL_AMMO_DESC" ,
+                {
+                    "<c00cc00><VALUE1>%</c>" : "12%"
+                }
+            ] ,
+            "StarPower2" : [
+                "TID_SPEC_ABI_SHIELD_HOMERUN" ,
+                {}
+            ] ,
+            "StarPowerDescription2" : [
+                "TID_SPEC_ABI_SHIELD_HOMERUN_DESC" ,
+                {
+                    "<c00cc00><VALUE1>%</c>" : "20%"
+                }
+            ]
+        }
+    }
+}
