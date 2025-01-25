@@ -1,0 +1,1 @@
+The project are generate to my tModLoader mod used localization file from Brawl Stars official apk.
