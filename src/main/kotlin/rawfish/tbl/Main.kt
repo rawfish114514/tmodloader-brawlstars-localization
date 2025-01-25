@@ -11,7 +11,7 @@ import java.io.File
  * 所有荒野乱斗翻译键都以"TID"开始。
  */
 fun main() {
-    var bTranslateMap: Map<Language, Map<String, String>> = languages.associateWith {
+    val bTranslateMap: Map<Language, Map<String, String>> = languages.associateWith {
         csvReader().readAll(File(brawlstarsLocalizationDir, it.bFile)).associate { record ->
             record[0] to record[1]
         }
@@ -22,8 +22,7 @@ fun main() {
             asObject().apply {
                 forEach {
                     if (it.value.isString) {
-
-                        var str = it.value.asString()
+                        val str = it.value.asString()
                         if (str.startsWith("TID")) {
                             // TID值
                             visitor(it.name, str, mapOf())
@@ -31,9 +30,9 @@ fun main() {
                         }
                     }
                     if (it.value.isArray) {
-                        var arr = it.value.asArray()
+                        val arr = it.value.asArray()
                         if (arr[0].isString) {
-                            var str = arr[0].asString()
+                            val str = arr[0].asString()
                             if (str.startsWith("TID")) {
                                 // TID结构
                                 visitor(
@@ -54,8 +53,8 @@ fun main() {
     }
 
     File(translateDefineDir).listFiles()?.forEach {
-        val id = it.name.substringBefore(".");
-        val suffix = it.name.substringAfter(".");
+        val id = it.name.substringBefore(".")
+        val suffix = it.name.substringAfter(".")
         if (suffix != "json") {
             return@forEach
         }
