@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation("org.hjson:hjson:3.1.0")
 }
 
 tasks.test {
