@@ -1,8 +1,5 @@
 package rawfish.tbl
 
-import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
-import org.hjson.JsonObject
-import org.hjson.JsonValue
 import org.hjson.Stringify
 import java.io.File
 
@@ -11,76 +8,20 @@ import java.io.File
  * 所有荒野乱斗翻译键都以"TID"开始。
  */
 fun main() {
-    val bTranslateMap: Map<Language, Map<String, String>> = languages.associateWith {
-        csvReader().readAll(File(brawlstarsLocalizationDir, it.bFile)).associate { record ->
-            record[0] to record[1]
-        }
-    }
-
-    fun JsonObject.visitTidStruct(visitor: JsonObject.(name: String, value: String, replace: Map<String, String>) -> Unit) {
-        if (isObject) {
-            asObject().apply {
-                forEach {
-                    if (it.value.isString) {
-                        val str = it.value.asString()
-                        if (str.startsWith("TID")) {
-                            // TID值
-                            visitor(it.name, str, mapOf())
-                            return@forEach
-                        }
-                    }
-                    if (it.value.isArray) {
-                        val arr = it.value.asArray()
-                        if (arr[0].isString) {
-                            val str = arr[0].asString()
-                            if (str.startsWith("TID")) {
-                                // TID结构
-                                visitor(
-                                    it.name, str, arr[1].asObject().associate { r ->
-                                        r.name to r.value.asString()
-                                    }
-                                )
-                                return@forEach
-                            }
-                        }
-                    }
-                    if (it.value.isObject) {
-                        it.value.asObject().visitTidStruct(visitor)
+    Language.entries.forEach { language ->
+        brawlers.forEach { c ->
+            c.constructors.first().call().run {
+                translateOutDirs.forEach { dir->
+                    File("${dir}/Brawlers/${brawlerID}/${language.tFile}").let {
+                        it.parentFile.mkdirs()
+                        it.createNewFile()
+                        it.writeText(
+                            seri(language).toString(Stringify.HJSON)
+                        )
                     }
                 }
-            }
-        }
-    }
-
-    File(translateDefineDir).listFiles()?.forEach {
-        val id = it.name.substringBefore(".")
-        val suffix = it.name.substringAfter(".")
-        if (suffix != "json") {
-            return@forEach
-        }
-
-        val dir = File(translateOutDir, id)
-        dir.mkdirs()
-        languages.forEach { languages ->
-            val file = File(dir, languages.tFile)
-            val translate = bTranslateMap[languages]!!
-            val define = JsonValue.readJSON(it.readText()).asObject()
-
-            define.visitTidStruct { name, value, replace ->
-                set(name, translate[value]?.run {
-                    var v = this
-                    replace.forEach { (old, new) ->
-                        v = v.replace(old, new)
-                    }
-                    v
-                } ?: "")
 
             }
-
-            val content = define.toString(Stringify.HJSON)
-            file.createNewFile()
-            file.writeText(content)
         }
-
     }
 }

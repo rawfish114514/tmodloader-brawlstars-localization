@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("reflect"))
     implementation("org.hjson:hjson:3.1.0")
     implementation("com.jsoizo:kotlin-csv-jvm:1.10.0")
 }
