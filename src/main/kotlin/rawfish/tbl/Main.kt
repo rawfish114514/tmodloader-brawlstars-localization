@@ -11,16 +11,14 @@ fun main() {
     Language.entries.forEach { language ->
         brawlers.forEach { c ->
             c.constructors.first().call().run {
-                translateOutDirs.forEach { dir->
+                val result = seri(language).toString(Stringify.HJSON)
+                translateOutDirs.forEach { dir ->
                     File("${dir}/Brawlers/${brawlerID}/${language.tFile}").let {
                         it.parentFile.mkdirs()
                         it.createNewFile()
-                        it.writeText(
-                            seri(language).toString(Stringify.HJSON)
-                        )
+                        it.writeText(result)
                     }
                 }
-
             }
         }
     }

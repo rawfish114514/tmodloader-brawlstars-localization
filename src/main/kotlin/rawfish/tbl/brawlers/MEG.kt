@@ -6,7 +6,7 @@ class MEG : Brawler() {
     override fun brawlerWeapon(language: Language): String = when (language) {
         Language.SimplifiedChinese -> "爆能手枪"
         Language.Russian -> "бластера "
-        else -> "Blaster That Pokes"
+        else -> "Blaster that pokes"
     }
 
     override val brawlerName: String = "TID_MECHA_DUDE"
@@ -81,7 +81,7 @@ class MEG : Brawler() {
                 name = "TID_ACCESSORY_MECHA_DUDE_TOWER_RELOAD",
                 description = "TID_ACCESSORY_MECHA_DUDE_TOWER_RELOAD_DESC",
                 descriptionReplaces = mapOf(
-                    replacePreCentValue(0)
+                    replaceValue(0)
                 )
             )
         ),
@@ -90,8 +90,8 @@ class MEG : Brawler() {
                 name = "TID_SPEC_ABI_MECHA_DUDE_1",
                 description = "TID_SPEC_ABI_MECHA_DUDE_1_DESC",
                 descriptionReplaces = mapOf(
-                    replacePreCentValue(0),
-                    replaceValue(0)
+                    replaceValue(0),
+                    replaceValue(1)
                 )
             ),
             StarPowerInfo(

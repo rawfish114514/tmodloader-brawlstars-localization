@@ -35,7 +35,7 @@ class SHELLY : Brawler() {
                     name = "TID_SHOTGUNGIRL_OVERCHARGE",
                     description = "TID_SHOTGUNGIRL_OVERCHARGE_DESC",
                     descriptionReplaces = mapOf(
-                        replacePreCentValue(0)
+                        replaceValue(0)
                     ),
                     stats = defaultHyperChargeStatInfos()
                 )
@@ -67,7 +67,7 @@ class SHELLY : Brawler() {
                 name = "TID_SPEC_ABI_MEDIKIT",
                 description = "TID_SPEC_ABI_MEDIKIT_DESC",
                 descriptionReplaces = mapOf(
-                    replacePreCentValue(0),
+                    replaceValue(0),
                     replaceValue(1),
                     replaceValue(2)
                 )

@@ -72,7 +72,7 @@ class MORTIS : Brawler() {
                 name = "TID_SPEC_ABI_STEAL_SOULS",
                 description = "TID_SPEC_ABI_STEAL_SOULS_DESC",
                 descriptionReplaces = mapOf(
-                    replacePreCentValue(0)
+                    replaceValue(0)
                 )
             ),
             StarPowerInfo(

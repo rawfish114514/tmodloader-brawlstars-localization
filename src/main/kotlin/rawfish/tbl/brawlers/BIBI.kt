@@ -61,14 +61,14 @@ class BIBI : Brawler() {
                 name = "TID_SPEC_ABI_SPED_FULL_AMMO",
                 description = "TID_SPEC_ABI_SPED_FULL_AMMO_DESC",
                 descriptionReplaces = mapOf(
-                    replacePreCentValue(0)
+                    replaceValue(0)
                 )
             ),
             StarPowerInfo(
                 name = "TID_SPEC_ABI_SHIELD_HOMERUN",
                 description = "TID_SPEC_ABI_SHIELD_HOMERUN_DESC",
                 descriptionReplaces = mapOf(
-                    replacePreCentValue(0)
+                    replaceValue(0)
                 )
             )
         )

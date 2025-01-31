@@ -43,7 +43,7 @@ interface Seri {
 
 fun Map<String, String>.replace(str: String): String {
     var str1 = str
-    forEach { (k, v) -> str1 = str1.replace(k, v) }
+    forEach { (k, v) -> str1 = str1.replace(Regex(k), v) }
     return str1
 }
 
@@ -228,5 +228,4 @@ fun singleAttackDamageStatInfo() = StatInfo(
     valueReplaces = mapOf()
 )
 
-fun replaceValue(i: Int) = "<c00cc00><VALUE${i + 1}></c>" to "{${i}}"
-fun replacePreCentValue(i: Int) = "<c00cc00><VALUE${i + 1}>%</c>" to "{${i}}"
+fun replaceValue(i: Int) = "<c00cc00><VALUE${i + 1}>((%|)|(с.))</c>(%|)" to "{${i}}" // c.是俄语中的
